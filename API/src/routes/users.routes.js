@@ -8,6 +8,7 @@ const usersRoutes = Router();
 const usersController = new UsersController();
 
 usersRoutes.post("/", usersController.create);
+usersRoutes.patch("/change-role/:id", usersController.changeRole);
 usersRoutes.put("/", ensureAuthenticated, usersController.update);
 
 

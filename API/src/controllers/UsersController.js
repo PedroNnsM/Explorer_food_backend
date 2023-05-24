@@ -13,9 +13,9 @@ class UsersController {
     const userRepository = new UserRepository();
 
     const checkUserExists = await userRepository.findByEmail(email);
-    console.log(checkUserExists)
+
     if (checkUserExists) {
-      throw new AppError("este email ja esta em uso");
+      throw new AppError("Este e-mail já está em uso.");
     }
 
     const hashedPassword = await hash(password, 8);
@@ -24,6 +24,23 @@ class UsersController {
     await userRepository.create({ name, email, password: hashedPassword });
 
     return response.status(201).json();
+  }
+
+  async changeRole(request, response) {
+    const { id } = request.params;
+    const { role } = request.body;
+
+    const userRepository = new UserRepository();
+
+    const checkUserExists = await userRepository.findById(id);
+
+    if (!checkUserExists) {
+      throw new AppError("Usuário não encontrado.");
+    }
+
+    const userUpdated = await userRepository.changeRole({id, role});
+
+    return response.status(200).json(userUpdated)
   }
 
   async update(request, response) {
@@ -37,7 +54,7 @@ class UsersController {
     ]);
 
     if (!user) {
-      throw new AppError("Usuario não encontrado");
+      throw new AppError("Usuário não encontrado.");
     }
 
     const userWithUpdateEmail = await database.get(

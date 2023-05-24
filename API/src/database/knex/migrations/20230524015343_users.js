@@ -2,7 +2,7 @@ exports.up = (knex) =>
   knex.schema.createTable("users", (table) => {
     table.increments("id");
     table.text("name").notNullable();
-    table.text("email").notNullable();
+    table.text("email").notNullable().unique();
     table.text("password").notNullable();
     table.enu("role", ["user", "admin"]).defaultTo("user");
     table.timestamp("created_at").notNullable().defaultTo(knex.fn.now());
