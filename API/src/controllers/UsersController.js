@@ -4,7 +4,7 @@ const AppError = require("../utils/AppError");
 
 const sqliteConnection = require("../database/sqlite");
 
-const UserRepository = require("../repositories/userRepository");
+const UserRepository = require("../repositories/UserRepository");
 
 class UsersController {
   async create(request, response) {
@@ -38,9 +38,9 @@ class UsersController {
       throw new AppError("Usuário não encontrado.");
     }
 
-    const userUpdated = await userRepository.changeRole({id, role});
+    const userUpdated = await userRepository.changeRole({ id, role });
 
-    return response.status(200).json(userUpdated)
+    return response.status(200).json(userUpdated);
   }
 
   async update(request, response) {
