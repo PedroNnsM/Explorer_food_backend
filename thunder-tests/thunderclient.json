@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "5c4bb59c-5026-4b05-86f8-3ad101806a4d",
+    "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "containerId": "8fd4959f-ac03-4603-9786-4cfb4f3c9e08",
+    "name": "Create",
+    "url": "{{baseUrl}}/users",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-05-24T01:36:51.131Z",
+    "modified": "2023-05-24T01:42:12.079Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"O nome\",\n  \"email\": \"outronome@email.com\",\n  \"password\" : \"123\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "a3dd0c67-2e3a-4921-909b-3d739203df81",
+    "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "containerId": "8fd4959f-ac03-4603-9786-4cfb4f3c9e08",
+    "name": "ChangeRole",
+    "url": "{{baseUrl}}/users/change-role/2",
+    "method": "PATCH",
+    "sortNum": 30000,
+    "created": "2023-05-24T02:53:00.073Z",
+    "modified": "2023-05-24T02:59:42.615Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n \n  \"role\": \"user\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

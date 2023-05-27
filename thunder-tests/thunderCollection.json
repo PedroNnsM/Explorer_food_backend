@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "colName": "RocketFood",
+    "created": "2023-05-24T01:36:14.777Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "8fd4959f-ac03-4603-9786-4cfb4f3c9e08",
+        "name": "Users",
+        "containerId": "",
+        "created": "2023-05-24T01:36:34.496Z",
+        "sortNum": 10000
+      }
+    ]
+  }
+]
