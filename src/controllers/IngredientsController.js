@@ -1,10 +1,42 @@
 const knex = require("../database/knex");
 
+const IngredientRepository = require("../repositories/IngredientRepository");
+const AppError = require("../utils/AppError");
+
 class IngredientsController {
   async index(request, response) {
-    const ingredients = await knex("ingredients").select("name");
+    const { search } = request.query;
 
-    return response.json(ingredients);
+    let ingredients = knex("ingredients");
+
+    if (search) {
+      ingredients = ingredients.whereRaw(
+        "UPPER(title) LIKE ?",
+        `%${search.toUpperCase()}%`
+      );
+    }
+
+    const result = await ingredients;
+
+    return response.json(result);
+  }
+
+  async create(request, response) {
+    const { title } = request.body;
+
+    const ingredientRepository = new IngredientRepository();
+
+    const checkIngredientExists = await ingredientRepository.findByTitle(title);
+
+    if (checkIngredientExists) {
+      throw new AppError(
+        "Esse ingrediente já está cadastrado no banco de dados."
+      );
+    }
+
+    const newIngredient = await ingredientRepository.create({ title });
+
+    return response.status(201).json(newIngredient);       
   }
 }
 

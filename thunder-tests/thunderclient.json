@@ -27,13 +27,149 @@
     "method": "PATCH",
     "sortNum": 30000,
     "created": "2023-05-24T02:53:00.073Z",
-    "modified": "2023-05-24T02:59:42.615Z",
+    "modified": "2023-05-29T13:58:26.934Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n \n  \"role\": \"user\"\n}",
       "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "2e17f3f8-cbb4-4349-823d-7a97da55454a",
+    "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "containerId": "7be84be3-cfd8-451f-91ef-3e60dfcdf468",
+    "name": "Create",
+    "url": "{{baseUrl}}/dishes",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-05-28T16:30:23.116Z",
+    "modified": "2023-05-29T19:57:41.707Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg2ODYsImV4cCI6MTY4NTQ1NTA4Niwic3ViIjoiMiJ9.pO4WLQPgzyxP71yFEiBxpDmmI5bGc4zFBLITKRiGK8Y",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Bolinho Primavera\",\n  \"description\": \"um bolinho muito gostoso\",\n  \"price\": 49.99,\n  \"categories\": \"chines\",\n  \"dishes_ingredients\": [\"trigo\", \"agua\"]\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg5MTQsImV4cCI6MTY4NTQ1NTMxNCwic3ViIjoiMiJ9.ZdFCcmVSqnKXyRzysi98dS0eK35lJPYAxRYJ3_ogKVk"
+    },
+    "tests": []
+  },
+  {
+    "_id": "092626e9-94fd-4315-91e6-ea6f31e7fdb8",
+    "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "containerId": "dfef60fb-2d4d-408d-81a1-3c5decaa2753",
+    "name": "Sessions",
+    "url": "{{baseUrl}}/sessions",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-05-28T16:38:00.824Z",
+    "modified": "2023-05-28T16:52:29.510Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n\t\"email\": \"outronome@email.com\",\n\t\"password\": \"123\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "823612a3-e0f1-4c73-8aed-6b2f948429fd",
+    "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "containerId": "9f0f9faf-a893-488e-9c21-2d6bd060be91",
+    "name": "Create",
+    "url": "{{baseUrl}}/Ingredients",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-05-29T19:28:48.150Z",
+    "modified": "2023-05-29T19:48:55.515Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg2ODYsImV4cCI6MTY4NTQ1NTA4Niwic3ViIjoiMiJ9.pO4WLQPgzyxP71yFEiBxpDmmI5bGc4zFBLITKRiGK8Y",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"paO de arroz\"\n \n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg5MTQsImV4cCI6MTY4NTQ1NTMxNCwic3ViIjoiMiJ9.ZdFCcmVSqnKXyRzysi98dS0eK35lJPYAxRYJ3_ogKVk"
+    },
+    "tests": []
+  },
+  {
+    "_id": "01d8619a-4862-4a6a-ad9d-cac1dde51728",
+    "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "containerId": "9f0f9faf-a893-488e-9c21-2d6bd060be91",
+    "name": "index",
+    "url": "{{baseUrl}}/Ingredients?search=pao",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-05-29T19:47:36.266Z",
+    "modified": "2023-05-29T19:49:13.795Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg2ODYsImV4cCI6MTY4NTQ1NTA4Niwic3ViIjoiMiJ9.pO4WLQPgzyxP71yFEiBxpDmmI5bGc4zFBLITKRiGK8Y",
+        "isDisabled": true
+      }
+    ],
+    "params": [
+      {
+        "name": "search",
+        "value": "pao",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg5MTQsImV4cCI6MTY4NTQ1NTMxNCwic3ViIjoiMiJ9.ZdFCcmVSqnKXyRzysi98dS0eK35lJPYAxRYJ3_ogKVk"
+    },
+    "tests": []
+  },
+  {
+    "_id": "7430000b-6848-44a2-9855-1d7e801c3f52",
+    "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "containerId": "7be84be3-cfd8-451f-91ef-3e60dfcdf468",
+    "name": "UploadImag",
+    "url": "{{baseUrl}}/dishes",
+    "method": "PUT",
+    "sortNum": 50000,
+    "created": "2023-05-29T19:52:37.622Z",
+    "modified": "2023-05-29T19:57:22.193Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg2ODYsImV4cCI6MTY4NTQ1NTA4Niwic3ViIjoiMiJ9.pO4WLQPgzyxP71yFEiBxpDmmI5bGc4zFBLITKRiGK8Y",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Bolinho Primavera\",\n  \"description\": \"um bolinho muito gostoso\",\n  \"img\": \"Bolinho Primavera\",\n  \"price\": \"49.99\",\n  \"categories\": \"chines\",\n  \"dishes_ingredients\": [\"trigo\", \"agua\"]\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg5MTQsImV4cCI6MTY4NTQ1NTMxNCwic3ViIjoiMiJ9.ZdFCcmVSqnKXyRzysi98dS0eK35lJPYAxRYJ3_ogKVk"
     },
     "tests": []
   }

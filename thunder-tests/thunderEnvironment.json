@@ -11,6 +11,10 @@
       {
         "name": "baseUrl",
         "value": "http://localhost:3333"
+      },
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg5MTQsImV4cCI6MTY4NTQ1NTMxNCwic3ViIjoiMiJ9.ZdFCcmVSqnKXyRzysi98dS0eK35lJPYAxRYJ3_ogKVk"
       }
     ]
   }
