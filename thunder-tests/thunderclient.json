@@ -46,7 +46,7 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-05-28T16:30:23.116Z",
-    "modified": "2023-05-29T19:57:41.707Z",
+    "modified": "2023-05-31T11:13:08.706Z",
     "headers": [
       {
         "name": "token",
@@ -57,12 +57,12 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\": \"Bolinho Primavera\",\n  \"description\": \"um bolinho muito gostoso\",\n  \"price\": 49.99,\n  \"categories\": \"chines\",\n  \"dishes_ingredients\": [\"trigo\", \"agua\"]\n}",
+      "raw": "{\n  \"title\": \"Bolinho Primavera\",\n  \"description\": \"um bolinho muito gostoso\",\n  \"price\": 49.99\n}",
       "form": []
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg5MTQsImV4cCI6MTY4NTQ1NTMxNCwic3ViIjoiMiJ9.ZdFCcmVSqnKXyRzysi98dS0eK35lJPYAxRYJ3_ogKVk"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODU1MzE1NjAsImV4cCI6MTY4NTYxNzk2MCwic3ViIjoiMyJ9.SkMWxTkiA4j8DZZCKu7bTO9QZ2BQ-Vrc5s8w_P8yibg"
     },
     "tests": []
   },
@@ -178,11 +178,11 @@
     "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
     "containerId": "c8bde068-3b51-412a-853c-f41d576a4c5b",
     "name": "Create",
-    "url": "{{baseUrl}}/Ingredients",
-    "method": "POST",
+    "url": "{{baseUrl}}/dishes/Image",
+    "method": "PATCH",
     "sortNum": 10000,
     "created": "2023-05-31T01:33:14.772Z",
-    "modified": "2023-05-31T01:33:16.873Z",
+    "modified": "2023-05-31T11:12:34.027Z",
     "headers": [
       {
         "name": "token",
@@ -192,9 +192,15 @@
     ],
     "params": [],
     "body": {
-      "type": "json",
-      "raw": "{\n  \"title\": \"paO de arroz\"\n \n}",
-      "form": []
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "",
+          "value": "..\\..\\..\\..\\OneDrive\\Imagens\\2020-03-27.png"
+        }
+      ]
     },
     "auth": {
       "type": "bearer",
