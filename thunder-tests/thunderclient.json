@@ -172,5 +172,34 @@
       "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg5MTQsImV4cCI6MTY4NTQ1NTMxNCwic3ViIjoiMiJ9.ZdFCcmVSqnKXyRzysi98dS0eK35lJPYAxRYJ3_ogKVk"
     },
     "tests": []
+  },
+  {
+    "_id": "ae35d6cc-9ada-4809-8748-0bf292405ad3",
+    "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
+    "containerId": "c8bde068-3b51-412a-853c-f41d576a4c5b",
+    "name": "Create",
+    "url": "{{baseUrl}}/Ingredients",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-05-31T01:33:14.772Z",
+    "modified": "2023-05-31T01:33:16.873Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg2ODYsImV4cCI6MTY4NTQ1NTA4Niwic3ViIjoiMiJ9.pO4WLQPgzyxP71yFEiBxpDmmI5bGc4zFBLITKRiGK8Y",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"paO de arroz\"\n \n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODUzNjg5MTQsImV4cCI6MTY4NTQ1NTMxNCwic3ViIjoiMiJ9.ZdFCcmVSqnKXyRzysi98dS0eK35lJPYAxRYJ3_ogKVk"
+    },
+    "tests": []
   }
 ]
