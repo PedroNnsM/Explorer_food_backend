@@ -4,21 +4,16 @@ const DiskStorage = require("../providers/DiskStorage");
 
 class ImagesController {
   async create(request, response) {
-    dish_id = request.dish.id
-    const imageFileName = request.file.filename;
+    const image = request.file;
 
-    const diskStorage = new DiskStorage();
-
-    if (!request.file) {
+    if (!image) {
       throw new AppError("Nenhuma foto selecionada");
     }
+    const diskStorage = new DiskStorage();
+console.log(image)
+    const filename = await diskStorage.saveFile(image.filename);
 
-    const filename = await diskStorage.saveFile(imageFileName);
-    const insertedImage = await knex("images").insert({ filename });
-    dish.img = filename
-
-    const imageId = insertedImage;
-    return response.json({ imageId });
+    return response.json({filename});
   }
 }
 module.exports = ImagesController;

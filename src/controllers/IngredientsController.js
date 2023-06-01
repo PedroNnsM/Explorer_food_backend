@@ -36,7 +36,7 @@ class IngredientsController {
 
     const newIngredient = await ingredientRepository.create({ title });
 
-    return response.status(201).json(newIngredient);       
+    return response.status(201).json(newIngredient);
   }
 }
 

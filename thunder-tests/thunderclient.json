@@ -46,7 +46,7 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-05-28T16:30:23.116Z",
-    "modified": "2023-05-31T11:13:08.706Z",
+    "modified": "2023-05-31T23:12:32.798Z",
     "headers": [
       {
         "name": "token",
@@ -57,7 +57,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\": \"Bolinho Primavera\",\n  \"description\": \"um bolinho muito gostoso\",\n  \"price\": 49.99\n}",
+      "raw": "{\n  \"title\": \"Bolinho Primavera\",\n  \"description\": \"um bolinho muito gostoso\",\n  \"price\": 49.99,\n  \"img\" : \"0388e3366203c3498c1e-2020-03-27.png\"\n}",
       "form": []
     },
     "auth": {
@@ -178,11 +178,11 @@
     "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
     "containerId": "c8bde068-3b51-412a-853c-f41d576a4c5b",
     "name": "Create",
-    "url": "{{baseUrl}}/dishes/Image",
-    "method": "PATCH",
+    "url": "{{baseUrl}}/Images",
+    "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-31T01:33:14.772Z",
-    "modified": "2023-05-31T11:12:34.027Z",
+    "modified": "2023-05-31T22:50:00.488Z",
     "headers": [
       {
         "name": "token",
@@ -197,7 +197,7 @@
       "form": [],
       "files": [
         {
-          "name": "",
+          "name": "image",
           "value": "..\\..\\..\\..\\OneDrive\\Imagens\\2020-03-27.png"
         }
       ]

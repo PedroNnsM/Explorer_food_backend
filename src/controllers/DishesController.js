@@ -5,33 +5,20 @@ const AppError = require("../utils/AppError");
 
 class DishesController {
   async create(request, response) {
-    const { title,  description, price,  } = request.body;
+    const { title, description, price,img } = request.body;
 
-    if ((!title,  !description, !price)) {
+    if ((!title, !description, !price)) {
       throw new AppError("Insira todos os campos");
     }
 
-    let search = knex("dishes");
-
-    if (search) {
-      dishes = dishes.whereRaw(
-        "UPPER(title) LIKE ?",
-        `%${search.toUpperCase()}%`
-      );
-    }
-    
-
-    const result = await dishes;
     const user_id = request.user.id;
-    const imgDishesFileName = request.file.filename;
-
-    const diskStorage = new DiskStorage();
-
+   
     //pegar o LastId
     const [dish_id] = await knex("dishes").insert({
       title,
       description,
       price,
+      img,
     });
     // [] TODO - rota de subir imagem
     // [] TODO -
@@ -64,8 +51,7 @@ class DishesController {
     // await knex("categories").insert(categoriesInsert);
     // await knex("dishes_ingredients").insert(dishesIngredientsInsert);
 
-    const filename = await diskStorage.saveFile(imgDishesFileName);
-    dishes.img = filename;
+    
 
     return response.json();
   }
