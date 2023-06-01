@@ -13,4 +13,4 @@ exports.up = (knex) =>
       .onDelete("CASCADE");
   });
 
-exports.down = (knex) => knex.schema.dropTable("dishes-ingredients");
+exports.down = (knex) => knex.schema.dropTable("dishes_ingredients");
