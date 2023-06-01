@@ -1,12 +1,12 @@
 const knex = require("../database/knex");
-const DiskStorage = require("../providers/DiskStorage");
+const IngredientRepository = require("../repositories/IngredientRepository");
 const AppError = require("../utils/AppError");
 
 class DishesController {
   async create(request, response) {
     const { title, description, price, img, category } = request.body;
     const ingredients = request.body.ingredients;
-    console.log(ingredients);
+
     if (!title || !description || !price || !ingredients) {
       throw new AppError("Insira todos os campos");
     }
@@ -21,12 +21,24 @@ class DishesController {
       category,
     });
 
-    const dishIngredients = ingredients.map((ingredient) => {
-      return {
+    const dishIngredients = [];
+
+    const ingredientRepository = new IngredientRepository();
+
+    for (const ingredientTitle of ingredients) {
+      let ingredient = await ingredientRepository.findByTitle(ingredientTitle);
+
+      if (!ingredient) {
+        ingredient = await ingredientRepository.create({
+          title: ingredientTitle,
+        });
+      }
+
+      dishIngredients.push({
         dish_id,
-        ingredient_id: ingredient,
-      };
-    });
+        ingredient_id: ingredient.id,
+      });
+    }
 
     await knex("dishes_ingredients").insert(dishIngredients);
 

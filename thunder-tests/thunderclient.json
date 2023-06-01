@@ -46,7 +46,7 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-05-28T16:30:23.116Z",
-    "modified": "2023-06-01T14:41:11.258Z",
+    "modified": "2023-06-01T19:59:45.019Z",
     "headers": [
       {
         "name": "token",
@@ -57,7 +57,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\": \"Bolinho Primavera\",\n  \"description\": \"um bolinho muito gostoso\",\n  \"price\": 49.99,\n  \"img\" : \"0388e3366203c3498c1e-2020-03-27.png\",\n  \"category\" : \"meal\",\n  \"ingredients\": [ \"tomate\"]\n}",
+      "raw": "{\n  \"title\": \"tacos\",\n  \"description\": \"um bolinho muito gostoso\",\n  \"price\": 69.99,\n  \"img\" : \"0388e3366203c3498c1e-2020-03-27.png\",\n  \"category\" : \"meal\",\n  \"ingredients\": [ \"tomate\", \"carne\", \"agua\"]\n}",
       "form": []
     },
     "auth": {
