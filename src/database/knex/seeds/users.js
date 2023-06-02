@@ -11,7 +11,7 @@ exports.seed = async function (knex) {
       name: "Sou Admin",
       email: "admin@email.com",
       password: "$2a$08$qAaN2Odtk1sOPwS1b9lP6euhH7qW.ps1BYRIaMdOGsZ7XeGch0pky",
-      role: "admin",
+      admin: true,
     },
   ]);
 };

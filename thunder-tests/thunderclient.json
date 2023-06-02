@@ -27,12 +27,12 @@
     "method": "PATCH",
     "sortNum": 30000,
     "created": "2023-05-24T02:53:00.073Z",
-    "modified": "2023-05-29T13:58:26.934Z",
+    "modified": "2023-06-02T01:31:45.780Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n \n  \"role\": \"user\"\n}",
+      "raw": "{\n \n  \"admin\": true\n}",
       "form": []
     },
     "tests": []
