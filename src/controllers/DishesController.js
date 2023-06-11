@@ -4,7 +4,7 @@ const AppError = require("../utils/AppError");
 
 class DishesController {
   async create(request, response) {
-    const { title, description, price, img, category } = request.body;
+    const { title, description, price, image, category } = request.body;
     const ingredients = request.body.ingredients;
 
     if (!title || !description || !price || !ingredients) {
@@ -17,7 +17,7 @@ class DishesController {
       title,
       description,
       price,
-      img,
+      image,
       category,
     });
 
