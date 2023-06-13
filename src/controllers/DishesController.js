@@ -4,9 +4,10 @@ const AppError = require("../utils/AppError");
 
 class DishesController {
   async create(request, response) {
-    const { title, description, price, image, category } = request.body;
-    const ingredients = request.body.ingredients;
+    const { title, description, price, image, category, ingredients } =
+      request.body;
 
+    console.log(title, description, price, ingredients);
     if (!title || !description || !price || !ingredients) {
       throw new AppError("Insira todos os campos");
     }
