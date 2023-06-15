@@ -7,7 +7,7 @@ class IngredientsController {
   async index(request, response) {
     const { search } = request.query;
 
-    let ingredients = knex("ingredients");
+    let ingredients = knex("ingredients").groupBy("title");
 
     if (search) {
       ingredients = ingredients.whereRaw(

@@ -94,7 +94,7 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-05-29T19:28:48.150Z",
-    "modified": "2023-06-01T14:49:04.190Z",
+    "modified": "2023-06-14T11:46:02.929Z",
     "headers": [
       {
         "name": "token",
@@ -105,7 +105,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\": \"Carne\"\n \n}",
+      "raw": "{\n  \"title\": \"farinha de arroz\"\n \n}",
       "form": []
     },
     "auth": {
@@ -149,11 +149,11 @@
     "colId": "e3b3328c-280a-4841-90c1-acb8e5f8a660",
     "containerId": "7be84be3-cfd8-451f-91ef-3e60dfcdf468",
     "name": "show",
-    "url": "{{baseUrl}}/dishes/1",
+    "url": "{{baseUrl}}/dishes?ingredients=pao",
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-05-29T19:52:37.622Z",
-    "modified": "2023-06-11T19:52:40.327Z",
+    "modified": "2023-06-15T12:48:23.890Z",
     "headers": [
       {
         "name": "token",
@@ -161,10 +161,16 @@
         "isDisabled": true
       }
     ],
-    "params": [],
+    "params": [
+      {
+        "name": "ingredients",
+        "value": "pao",
+        "isPath": false
+      }
+    ],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODY1MTMxNDksImV4cCI6MTY4NjU5OTU0OSwic3ViIjoiMiJ9.UXtzI3NMR7om_NeXeJ57TegApquj7RwF7K1QHL60dso"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODY4MzMyOTAsImV4cCI6MTY4NjkxOTY5MCwic3ViIjoiMiJ9.dCfUY1LKIOp6hCnPrMPEx0urslIIVGU74phZN9EbNpM"
     },
     "tests": []
   },
