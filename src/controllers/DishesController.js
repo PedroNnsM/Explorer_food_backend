@@ -50,9 +50,11 @@ class DishesController {
     const { id } = request.params;
 
     const dish = await knex("dishes").where({ id }).first();
+    const dishesIngredients = await knex("dishes_ingredients").where({dish_id: id})
 
     return response.json({
       ...dish,
+      dishesIngredients,
     });
   }
 }
