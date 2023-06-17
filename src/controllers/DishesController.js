@@ -50,12 +50,29 @@ class DishesController {
     const { id } = request.params;
 
     const dish = await knex("dishes").where({ id }).first();
-    const dishesIngredients = await knex("dishes_ingredients").where({dish_id: id})
+    const dishesIngredients = await knex("dishes_ingredients").where({
+      dish_id: id,
+    });
 
     return response.json({
       ...dish,
       dishesIngredients,
     });
+  }
+
+  async delete(request, response) {
+    const { id } = request.params;
+
+    await knex("dishes").where({ id }).delete();
+
+    return response.json();
+  }
+
+  async index(request,response){
+    const dishes = await knex("dishes")
+    .orderBy("title")
+
+    return response.json(dishes)
   }
 }
 
