@@ -78,7 +78,23 @@ class DishesController {
         .split(",")
         .map((ingredient) => ingredient.trim(""));
 
-      dishes = await knex("ingredients").whereIn("title", filterIngredients);
+      dishes = await knex("dishes")
+        .select(["dishes.id", "dishes.title", "dishes.user_id"])
+        .where("dishes.user_id", user_id)
+        .whereLike("dishes.title", `%${title}%`)
+        .whereIn("ingredients.title", filterIngredients)
+        .innerJoin(
+          "dishes_ingredients",
+          "dishes.id",
+          "dishes_ingredients.dish_id"
+        )
+        .innerJoin(
+          "ingredients",
+          "ingredients.id",
+          "dishes_ingredients.ingredient_id"
+        )
+        .groupBy("dishes.id")
+        .orderBy("dishes.title");
     } else {
       dishes = await knex("dishes")
         .whereLike("title", `%${title}%`)
