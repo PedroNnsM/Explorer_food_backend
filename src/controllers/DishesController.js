@@ -77,7 +77,8 @@ class DishesController {
       const filterIngredients = ingredients
         .split(",")
         .map((ingredient) => ingredient.trim(""));
-      console.log(filterIngredients);
+
+      dishes = await knex("ingredients").whereIn("title", filterIngredients);
     } else {
       dishes = await knex("dishes")
         .whereLike("title", `%${title}%`)
