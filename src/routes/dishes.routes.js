@@ -11,7 +11,6 @@ const multer = require("multer");
 const dishesRoutes = Router();
 
 const upload = multer(uploadConfig.MULTER);
-
 const dishesController = new DishesController();
 
 dishesRoutes.use(ensureAuthenticated);
