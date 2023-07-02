@@ -115,13 +115,11 @@ class DishesController {
           dishIngredient.dish_id === dish.id &&
           dishIngredient.ingredient_id === dishIngredient.id
       );
-      const filterIngredients = allIngredients.filter(
-        ingredient => ingredient.id === dishIngredients.ingredient_id
-      )
+     
 
       return {
         ...dish,
-        ingredients: filterIngredients,
+        ingredients: dishIngredients,
       };
     });
     return response.json(dishesWithIngredients);
