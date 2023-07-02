@@ -106,17 +106,22 @@ class DishesController {
         .orderBy("title");
     }
 
-    const allIngredients = await knex("dishes_ingredients");
+    const allDishesIngredients = await knex("dishes_ingredients");
+    const allIngredients = await knex("ingredients");
+
     const dishesWithIngredients = dishes.map((dish) => {
-      const dishIngredients = allIngredients.filter(
-        (ingredient) =>
-          ingredient.dish_id === dish.id &&
-          ingredient.ingredient_id === ingredient.id
+      const dishIngredients = allDishesIngredients.filter(
+        (dishIngredient) =>
+          dishIngredient.dish_id === dish.id &&
+          dishIngredient.ingredient_id === dishIngredient.id
       );
+      const filterIngredients = allIngredients.filter(
+        ingredient => ingredient.id === dishIngredients.ingredient_id
+      )
 
       return {
         ...dish,
-        ingredients: dishIngredients,
+        ingredients: filterIngredients,
       };
     });
     return response.json(dishesWithIngredients);
