@@ -72,7 +72,7 @@ class DishesController {
     const { title, ingredients } = request.query;
 
     let dishes;
-
+    console.log(title);
     if (ingredients) {
       const filterIngredients = ingredients
         .split(",")
@@ -94,7 +94,7 @@ class DishesController {
           "dishes_ingredients.dish_id"
         )
         .innerJoin(
-          "ingredients",
+          "ingredients.*",
           "ingredients.id",
           "dishes_ingredients.ingredient_id"
         )
@@ -107,15 +107,11 @@ class DishesController {
     }
 
     const allDishesIngredients = await knex("dishes_ingredients");
-    const allIngredients = await knex("ingredients");
 
     const dishesWithIngredients = dishes.map((dish) => {
       const dishIngredients = allDishesIngredients.filter(
-        (dishIngredient) =>
-          dishIngredient.dish_id === dish.id &&
-          dishIngredient.ingredient_id === dishIngredient.id
+        (dishIngredient) => dishIngredient.dish_id === dish.id
       );
-     
 
       return {
         ...dish,
