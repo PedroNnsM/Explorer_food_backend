@@ -93,11 +93,6 @@ class DishesController {
           "dishes.id",
           "dishes_ingredients.dish_id"
         )
-        .innerJoin(
-          "ingredients.*",
-          "ingredients.id",
-          "dishes_ingredients.ingredient_id"
-        )
         .groupBy("dishes.id")
         .orderBy("dishes.title");
     } else {
@@ -106,13 +101,20 @@ class DishesController {
         .orderBy("title");
     }
 
-    const allDishesIngredients = await knex("dishes_ingredients");
+    const allDishesIngredients = await knex("dishes_ingredients")
+      .select(["ingredients.title", "ingredients.id", "dishes_ingredients.dish_id"])
+      .innerJoin(
+        "ingredients",
+        "ingredients.id",
+        "dishes_ingredients.ingredient_id"
+        
+      );
 
     const dishesWithIngredients = dishes.map((dish) => {
       const dishIngredients = allDishesIngredients.filter(
         (dishIngredient) => dishIngredient.dish_id === dish.id
       );
-
+      console.log(dishIngredients);
       return {
         ...dish,
         ingredients: dishIngredients,
