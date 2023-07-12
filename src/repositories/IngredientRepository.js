@@ -1,12 +1,12 @@
 const sqliteConnection = require("../database/sqlite");
 
 class IngredientRepository {
-  async findByTitle(title) {
+  async findByTitle(name) {
     const database = await sqliteConnection();
 
     const ingredient = await database.get(
-      "SELECT * FROM ingredients WHERE UPPER(title) = UPPER(?)",
-      [title]
+      "SELECT * FROM ingredients WHERE UPPER(name) = UPPER(?)",
+      [name]
     );
 
     return ingredient;
