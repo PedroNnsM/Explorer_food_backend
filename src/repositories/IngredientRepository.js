@@ -23,14 +23,14 @@ class IngredientRepository {
     return ingredient;
   }
 
-  async create({ title }) {
+  async create({ name }) {
     const database = await sqliteConnection();
 
     let newIngredient;
 
     const newIngredientInsert = await database.run(
-      "INSERT INTO ingredients (title) VALUES (?)",
-      [title]
+      "INSERT INTO ingredients (name) VALUES (?)",
+      [name]
     );
 
     if (newIngredientInsert && newIngredientInsert.lastID) {

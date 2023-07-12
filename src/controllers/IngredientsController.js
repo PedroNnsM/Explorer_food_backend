@@ -7,11 +7,11 @@ class IngredientsController {
   async index(request, response) {
     const { search } = request.query;
 
-    let ingredients = knex("ingredients").groupBy("title");
+    let ingredients = knex("ingredients").groupBy("name");
 
     if (search) {
       ingredients = ingredients.whereRaw(
-        "UPPER(title) LIKE ?",
+        "UPPER(name) LIKE ?",
         `%${search.toUpperCase()}%`
       );
     }
@@ -22,11 +22,11 @@ class IngredientsController {
   }
 
   async create(request, response) {
-    const { title } = request.body;
+    const { name } = request.body;
 
     const ingredientRepository = new IngredientRepository();
 
-    const checkIngredientExists = await ingredientRepository.findByTitle(title);
+    const checkIngredientExists = await ingredientRepository.findByTitle(name);
 
     if (checkIngredientExists) {
       throw new AppError(
@@ -34,7 +34,7 @@ class IngredientsController {
       );
     }
 
-    const newIngredient = await ingredientRepository.create({ title });
+    const newIngredient = await ingredientRepository.create({ name });
 
     return response.status(201).json(newIngredient);
   }

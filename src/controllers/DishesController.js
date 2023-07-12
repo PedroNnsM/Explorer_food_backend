@@ -26,12 +26,12 @@ class DishesController {
 
     const ingredientRepository = new IngredientRepository();
 
-    for (const ingredientTitle of ingredients) {
-      let ingredient = await ingredientRepository.findByTitle(ingredientTitle);
+    for (const ingredientName of ingredients) {
+      let ingredient = await ingredientRepository.findByTitle(ingredientName);
 
       if (!ingredient) {
         ingredient = await ingredientRepository.create({
-          title: ingredientTitle,
+          name: ingredientName,
         });
       }
 
@@ -87,7 +87,7 @@ class DishesController {
           "dishes.price",
         ])
         .whereLike("dishes.title", `%${title}%`)
-        .whereIn("ingredients.title", filterIngredients)
+        .whereIn("ingredients.name", filterIngredients)
         .innerJoin(
           "dishes_ingredients",
           "dishes.id",
@@ -102,7 +102,7 @@ class DishesController {
     }
 
     const allDishesIngredients = await knex("dishes_ingredients")
-      .select(["ingredients.title", "ingredients.id", "dishes_ingredients.dish_id"])
+      .select(["ingredients.name", "ingredients.id", "dishes_ingredients.dish_id"])
       .innerJoin(
         "ingredients",
         "ingredients.id",
