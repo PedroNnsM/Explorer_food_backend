@@ -72,12 +72,22 @@ class DishesController {
     const { title, ingredients } = request.query;
 
     let dishes;
-    console.log(title);
+
     if (ingredients) {
       const filterIngredients = ingredients
         .split(",")
-        .map((ingredient) => ingredient.trim(""));
+        .map((ingredient) => ingredient.trim());
 
+      // Subquery para obter os IDs dos pratos que possuem os ingredientes informados
+      const subquery = knex("dishes_ingredients")
+        .select("dish_id")
+        .whereIn("ingredient_id", function () {
+          this.select("id")
+            .from("ingredients")
+            .whereIn("name", filterIngredients);
+        });
+
+      // Consulta para obter os pratos com base no título e nos ingredientes
       dishes = await knex("dishes")
         .select([
           "dishes.id",
@@ -87,12 +97,7 @@ class DishesController {
           "dishes.price",
         ])
         .whereLike("dishes.title", `%${title}%`)
-        .whereIn("ingredients.name", filterIngredients)
-        .innerJoin(
-          "dishes_ingredients",
-          "dishes.id",
-          "dishes_ingredients.dish_id"
-        )
+        .whereIn("dishes.id", subquery)
         .groupBy("dishes.id")
         .orderBy("dishes.title");
     } else {
@@ -102,24 +107,28 @@ class DishesController {
     }
 
     const allDishesIngredients = await knex("dishes_ingredients")
-      .select(["ingredients.name", "ingredients.id", "dishes_ingredients.dish_id"])
+      .select([
+        "ingredients.name",
+        "ingredients.id",
+        "dishes_ingredients.dish_id",
+      ])
       .innerJoin(
         "ingredients",
         "ingredients.id",
         "dishes_ingredients.ingredient_id"
-        
       );
 
     const dishesWithIngredients = dishes.map((dish) => {
       const dishIngredients = allDishesIngredients.filter(
         (dishIngredient) => dishIngredient.dish_id === dish.id
       );
-      console.log(dishIngredients);
+
       return {
         ...dish,
         ingredients: dishIngredients,
       };
     });
+
     return response.json(dishesWithIngredients);
   }
 }
