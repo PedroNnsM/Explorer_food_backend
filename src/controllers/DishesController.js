@@ -20,26 +20,15 @@ class DishesController {
       category,
     });
 
-    const dishIngredients = [];
-
-    const ingredientRepository = new IngredientRepository();
-
-    for (const ingredientName of ingredients) {
-      let ingredient = await ingredientRepository.findByTitle(ingredientName);
-
-      if (!ingredient) {
-        ingredient = await ingredientRepository.create({
-          name: ingredientName,
-        });
-      }
-
-      dishIngredients.push({
+    const insertIngredients = ingredients.map((name) => {
+      return {
         dish_id,
-        ingredient_id: ingredient.id,
-      });
-    }
+        name,
+      }
+    })
+    await knex('ingredients').insert(insertIngredients)
 
-    await knex("dishes_ingredients").insert(dishIngredients);
+   
 
     return response.json();
   }
